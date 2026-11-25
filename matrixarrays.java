@@ -150,14 +150,14 @@ void main() {
 
     for (int i = 0; i < SevenD.length; i++) {
         for (int j = 0; j < SevenD[i].length; j++) {
-            if(d == SevenD[i][j]) {
-                System.out.println("Your number at: " + (i+1) + " row and " + (j+1) + " column");
+            if (d == SevenD[i][j]) {
+                System.out.println("Your number at: " + (i + 1) + " row and " + (j + 1) + " column");
                 found = true;
                 break;
             }
         }
     }
-    if(!found) {
+    if (!found) {
         System.out.println("Not Found");
     }
     System.out.println("");
@@ -219,7 +219,7 @@ void main() {
             rowSum += TenD[i][j];
             Avgtotal = rowSum / TenD[i].length;
         }
-        System.out.println("Student " + (i+1) + " average: " + Avgtotal);
+        System.out.println("Student " + (i + 1) + " average: " + Avgtotal);
     }
     System.out.println("");
     int max100 = TenD[0][0];
@@ -237,8 +237,38 @@ void main() {
     for (int i = 0; i < TenD.length; i++) {
         for (int j = 0; j < TenD[i].length; j++) {
             sumAll += TenD[i][j];
-            overallavg = sumAll / (TenD[i].length*3);
+            overallavg = sumAll / (TenD[i].length * 3);
         }
     }
     System.out.println("Overall Average: " + overallavg);
+    System.out.println("");
+
+
+    // ЗАДАЧА 13 (EXTRA)
+
+    int[][] ElevD = {
+            {10, 22, 3, 44},
+            {10, 30, 5, 5},
+            {7, 18, 9, 1}
+    };
+
+    int maxSum = 0;
+    for (int j = 0; j < ElevD[0].length; j++) {
+        maxSum += ElevD[0][j];            // сумма первой строки
+    }
+    int maxRow = 0;
+
+    for (int i = 1; i < ElevD.length; i++) {   // начинаем со строки 1
+        int rowSum = 0;
+        for (int j = 0; j < ElevD[i].length; j++) {
+            rowSum += ElevD[i][j];
+        }
+        if (rowSum > maxSum) {
+            maxSum = rowSum;
+            maxRow = i;
+        }
+    }
+
+    System.out.println("Largest sum is in row " + (maxRow + 1) + ": " + maxSum);
+
 }
